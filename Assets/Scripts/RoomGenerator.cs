@@ -42,15 +42,10 @@ public class RoomGenerator : MonoBehaviour
                 
                     int rand = Random.Range(0, 100), whichPrefab = 0;
                     if (rand < emptyfields) whichPrefab = 0;
-                    else if (rand > emptyfields && rand < emptyfields + jump) whichPrefab = 1;
-                    else if (rand > emptyfields + jump && rand < emptyfields + 2*jump) whichPrefab = 2;
-                    else if (rand > emptyfields + 2*jump && rand < emptyfields + 3*jump) whichPrefab = 3;
-                    else if (rand > emptyfields + 3*jump && rand < emptyfields + 4*jump) whichPrefab = 4;
-                    else if (rand > emptyfields + 4*jump && rand < emptyfields + 5*jump) whichPrefab = 5;
-                    else if (rand > emptyfields + 5*jump && rand < emptyfields + 6*jump) whichPrefab = 6;
-                    else if (rand > emptyfields + 6*jump && rand < emptyfields + 7*jump) whichPrefab = 7;
-                    else if (rand > emptyfields + 7*jump && rand < emptyfields + 8*jump) whichPrefab = 8;
-                    else if (rand > emptyfields + 8*jump && rand < emptyfields + 9*jump) whichPrefab = 9;
+                    for(int k=0; k<listOfTiles.Count-1; k++)
+                    {
+                        if(rand > emptyfields + k*jump && rand < emptyfields + (k+1)*jump) whichPrefab = k+1;
+                    }
                     room[i, j] = whichPrefab;
             }
         }

@@ -15,6 +15,6 @@ public class TextUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent< Text > ().text = " " + Mathf.Floor(slider.value) + ":";  
+        GetComponent< Text > ().text = " " + Mathf.Floor(slider.value);  
     }
 }
